@@ -3,6 +3,7 @@ Uma ferramenta boa para <b>analise de vulnerabilidades</b>, <b>port scanning</b>
 
 <hr>
 
-## sobre
+## Rede é vulnerabilidade.
 
-Ela é uma ferramenta de <b>código aberto</b> que ajuda em muitas coisas,Ela terá um port scan de ipv4 ipv6, um sniffer de rede, um analisador se vulnerabilidades, consulta banner grabbing é analisa as proteções de aplicações web
+Uma ferramenta de cibersegurança para análise de redes, descoberta de serviços, identificação de vulnerabilidades e reconhecimento de sistemas.
+O projeto tem como objetivo reunir diferentes funcionalidades de segurança em uma única ferramenta, permitindo analisar redes IPv4 e IPv6, identificar portas abertas, detectar serviços em execução, inspecionar o tráfego de rede e verificar possíveis vulnerabilidades em aplicações web e serviços de rede.
