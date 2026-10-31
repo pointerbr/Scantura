@@ -1,8 +1,19 @@
+#!/usr/bin/env python3
 import socket
 import argparse
 
-um_pequeno_texto_inicial = 
+menu = """
+--options:Este campo é obrigatorio, nele você irá escolher qual opçãi você escolhe 1,2,3,4,5 ou 6
+
+--address, ip: informar ip ou dominio.
+
+--address4, ipv4: informar ip ou dominio que usam ipv4.
+
+--address6, ipv6: informar ip ou dominio que usam ipv6.
+
+--port, porta:Este campo não é obrigatorio, se não informar a porta ou portas irá automaticamente fazer scan de 1024 portas
 """
+um_pequeno_texto_inicial = """
 Olá, eu soi pointer(criador da ferramenta) eu criei essa ferramenta para ajudar muito em pentest, analise de rede, ajudar muito vocês nisso, então nessa ferramenta ainda será adicionado mais coisas no momento ainda está em desenvolvimento e irei adicionar mais coisas mo futuro a frente.
 """
 
@@ -31,4 +42,30 @@ art = """
 """
 print(art)
 print(um_pequeno_texto_inicial)
+print(menu)
 
+portas_mais_utilizadasTCP_UDP = [20,21,22,23,25,53,67,68,69,80,110,111,123,135,137,138,139,143,161,162,443,445,500,514,520,631,993,995,1434,1723,1900,3306,3389,4500,5900,8080,49152]
+
+principais_portas_web = [80 , 443 , 8009 , 8180 , 81 , 300 , 591 , 593 , 832 , 981 , 1010 , 1311 , 2082 , 2087 , 2095 , 2096 , 2480 , 3000 , 3128 , 3333 , 4243 , 4567 , 4711 , 4712 , 4993 , 5000 , 5104 , 5108 , 5800 , 6543 , 7000 , 7396 , 7474 , 8000 , 8001 , 8008 , 8014 , 8042 , 8069 , 8080 , 8081 , 8088 , 8090 , 8091 , 8118 , 8123 , 8172 , 8222 , 8243 , 8280 , 8281 , 8333 , 8443 , 8500 , 8834 , 8880 , 8888 , 8983 , 9000 , 9043 , 9060 , 9080 , 9090 , 9091 , 9200 , 9443 , 9800 , 9981 , 12443 , 16080 , 18091 , 18092 , 20720 , 28017]
+
+todas_as_portas_TCP = [21,22,23,25,53,80,110,111,135,139,143,443,445,993,995,1723,3306,3389,5900,8080,8009,8180,81,300,591,593,832,981,1010,1311,2082,2087,2095,2096,2480,3000,3128,3333,4243,4567,4711,4712,4993]
+
+UDP_ports = [
+    53, 67, 68, 69, 123, 137, 138, 161, 162,
+    500, 514, 520, 1194, 1812, 1813, 1900,
+    3478, 4500, 5060
+]
+
+comum_ports = list(range(1, 1025))
+
+all_ports = list(range(1,65536))
+
+arg = argparse.ArgumentParser()
+
+arg.add_argument("--address", dest="ip", type=str, nargs="+")
+arg.add_argument("--address4", dest="ipv4", type=str, nargs="+")
+arg.add_argument("--address6", dest="ipv6", type=str, nargs="+")
+arg.add_argument("--port", dest="porta", type=int, required=False, nargs="+", default=None)
+arg.add_argument("--options", type=int, choices=range(1, 7), required=True)
+
+args = arg.parse_args()
