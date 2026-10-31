@@ -5,9 +5,7 @@ import argparse
 menu = """
 --options:Este campo é obrigatorio, nele você irá escolher qual opçãi você escolhe 1,2,3,4,5 ou 6
 
---address, ip: informar ip ou dominio.
-
---address4, ipv4: informar ip ou dominio que usam ipv4.
+--address, ip: informar ip ou dominio(padrão ipv4).
 
 --address6, ipv6: informar ip ou dominio que usam ipv6.
 
@@ -63,7 +61,6 @@ all_ports = list(range(1,65536))
 arg = argparse.ArgumentParser()
 
 arg.add_argument("--address", dest="ip", type=str, nargs="+")
-arg.add_argument("--address4", dest="ipv4", type=str, nargs="+")
 arg.add_argument("--address6", dest="ipv6", type=str, nargs="+")
 arg.add_argument("--port", dest="porta", type=int, required=False, nargs="+", default=None)
 arg.add_argument("--options", type=int, choices=range(1, 7), required=True)
