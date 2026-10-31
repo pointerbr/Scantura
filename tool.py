@@ -1,21 +1,32 @@
 #!/usr/bin/env python3
 import socket
 import argparse
+import time
 
-menu = """
+class color:
+	Preto = "\033[1;30m"
+	Vermelho = "\033[1;31m"
+	Verde = "\033[1;32m"
+	Amarelo = "\033[1;33m"
+	Azul = "\033[1;34m"
+	Magenta = "\033[1;35m"
+	Cyan = "\033[1;36m"
+	Branco_Cinza_Claro = "\033[1;37m"
+	
+menu = f"""{color.Amarelo}
 --options:Este campo é obrigatorio, nele você irá escolher qual opçãi você escolhe 1,2,3,4,5 ou 6
 
---address, ip: informar ip ou dominio(padrão ipv4).
+--address, ip: informar ip ou dominio.
 
 --address6, ipv6: informar ip ou dominio que usam ipv6.
 
 --port, porta:Este campo não é obrigatorio, se não informar a porta ou portas irá automaticamente fazer scan de 1024 portas
 """
-um_pequeno_texto_inicial = """
+um_pequeno_texto_inicial = f"""{color.Vermelho}
 Olá, eu soi pointer(criador da ferramenta) eu criei essa ferramenta para ajudar muito em pentest, analise de rede, ajudar muito vocês nisso, então nessa ferramenta ainda será adicionado mais coisas no momento ainda está em desenvolvimento e irei adicionar mais coisas mo futuro a frente.
 """
 
-art = """
+art = f"""{color.Azul}
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠖⠃⠀⠀⠀⡁⠀⠀⠀⠀⠀⠐⠆⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⢔⡤⠊⠁⠀⠀⠀⠀⠀
@@ -38,6 +49,7 @@ art = """
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 """
+time.sleep(0000.1)
 print(art)
 print(um_pequeno_texto_inicial)
 print(menu)
