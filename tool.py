@@ -14,16 +14,39 @@ class color:
 	Branco_Cinza_Claro = "\033[1;37m"
 	
 menu = f"""{color.Amarelo}
---options:Este campo é obrigatorio, nele você irá escolher qual opçãi você escolhe 1,2,3,4,5 ou 6
-
+========================================================================
+--options:Este campo é obrigatorio, nele você irá escolher qual opçãi você escolhe 1,2,3,4,5 é 6
+========================================================================
+1:Port scanning
+passe o ip é porta
+========================================================================
+2:vulnerability scan
+passe o ip é porta é fale se o ip é um site ou não
+========================================================================
+3:indentificador de OS:
+passe só o io
+========================================================================
+4:indentificadir de versão:
+passe o ip é a porta que está aberta
+========================================================================
+5:sniffer de rede
+Ele irá mostrar seu trafego de rede na tela
+========================================================================
+6:indentificador de Waf
+mande o dominio
+========================================================================
 --address, ip: informar ip ou dominio.
-
+========================================================================
 --address6, ipv6: informar ip ou dominio que usam ipv6.
-
+========================================================================
 --port, porta:Este campo não é obrigatorio, se não informar a porta ou portas irá automaticamente fazer scan de 1024 portas
+========================================================================
 """
-um_pequeno_texto_inicial = f"""{color.Vermelho}
+um_pequeno_texto_inicial = f"""
+{color.Vermelho}
+________________________________________________________________________
 Olá, eu soi pointer(criador da ferramenta) eu criei essa ferramenta para ajudar muito em pentest, analise de rede, ajudar muito vocês nisso, então nessa ferramenta ainda será adicionado mais coisas no momento ainda está em desenvolvimento e irei adicionar mais coisas mo futuro a frente.
+------------------------------------------------------------------------
 """
 
 art = f"""{color.Azul}
@@ -72,9 +95,11 @@ all_ports = list(range(1,65536))
 
 arg = argparse.ArgumentParser()
 
-arg.add_argument("--address", dest="ip", type=str, nargs="+")
+arg.add_argument("--address", dest="ip", type=str, nargs="+", default=None)
 arg.add_argument("--address6", dest="ipv6", type=str, nargs="+")
 arg.add_argument("--port", dest="porta", type=int, required=False, nargs="+", default=None)
 arg.add_argument("--options", type=int, choices=range(1, 7), required=True)
 
 args = arg.parse_args()
+
+class port_scanning():()
