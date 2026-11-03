@@ -13,40 +13,12 @@ class color:
 	Cyan = "\033[1;36m"
 	Branco_Cinza_Claro = "\033[1;37m"
 	
-menu = f"""{color.Amarelo}
-========================================================================
---options:Este campo é obrigatorio, nele você irá escolher qual opçãi você escolhe 1,2,3,4,5 é 6
-========================================================================
-1:Port scanning
-passe o ip é porta
-========================================================================
-2:vulnerability scan
-passe o ip é porta é fale se o ip é um site ou não
-========================================================================
-3:indentificador de OS:
-passe só o io
-========================================================================
-4:indentificadir de versão:
-passe o ip é a porta que está aberta
-========================================================================
-5:sniffer de rede
-Ele irá mostrar seu trafego de rede na tela
-========================================================================
-6:indentificador de Waf
-mande o dominio
-========================================================================
---address, ip: informar ip ou dominio.
-========================================================================
---address6, ipv6: informar ip ou dominio que usam ipv6.
-========================================================================
---port, porta:Este campo não é obrigatorio, se não informar a porta ou portas irá automaticamente fazer scan de 1024 portas
-========================================================================
-"""
 um_pequeno_texto_inicial = f"""
 {color.Vermelho}
 ________________________________________________________________________
 Olá, eu soi pointer(criador da ferramenta) eu criei essa ferramenta para ajudar muito em pentest, analise de rede, ajudar muito vocês nisso, então nessa ferramenta ainda será adicionado mais coisas no momento ainda está em desenvolvimento e irei adicionar mais coisas mo futuro a frente.
 ------------------------------------------------------------------------
+{color.Branco_Cinza_Claro}
 """
 
 art = f"""{color.Azul}
@@ -72,10 +44,9 @@ art = f"""{color.Azul}
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 """
-time.sleep(0000.1)
+
 print(art)
 print(um_pequeno_texto_inicial)
-print(menu)
 
 portas_mais_utilizadasTCP_UDP = [20,21,22,23,25,53,67,68,69,80,110,111,123,135,137,138,139,143,161,162,443,445,500,514,520,631,993,995,1434,1723,1900,3306,3389,4500,5900,8080,49152]
 
@@ -95,9 +66,9 @@ all_ports = list(range(1,65536))
 
 arg = argparse.ArgumentParser()
 
-arg.add_argument("--address", dest="ip", type=str, nargs="+", default=None)
-arg.add_argument("--address6", dest="ipv6", type=str, nargs="+")
-arg.add_argument("--port", dest="porta", type=int, required=False, nargs="+", default=None)
+arg.add_argument("--address", dest="ip", type=str,  help="coloque o ip ou dominio determinado", nargs="+", default=None)
+arg.add_argument("--address6", dest="ipv6", type=str, help="coloque seu ip do tipo ipv6 ", nargs="+")
+arg.add_argument("--port", dest="porta", type=int, required=False, help="colque a porta determinada", nargs="+", default=None)
 arg.add_argument("--options", type=int, choices=range(1, 7), required=True)
 
 args = arg.parse_args()
